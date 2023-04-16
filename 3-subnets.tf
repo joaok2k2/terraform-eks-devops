@@ -12,7 +12,7 @@ resource "aws_subnet" "private-sub-1a" {
   tags = {                                                           # informações para controler 
     "Name"                            = "private-${var.sub-priv-1a}" # Nome da Subnet
     "kubernetes.io/role/internal-elb" = "1"
-    "kubernetes.io/cluster/demo"      = "owned" # quem vai usar subnet 
+    "kubernetes.io/cluster/${var.cluster-name}"      = "owned" # quem vai usar subnet 
   }
 }
 
@@ -25,7 +25,7 @@ resource "aws_subnet" "private-sub-1b" {
   tags = {
     "Name"                            = "private-${var.sub-priv-1b}" # Nome da Subnet
     "kubernetes.io/role/internal-elb" = "1"
-    "kubernetes.io/cluster/demo"      = "owned" # quem vai usar subnet 
+    "kubernetes.io/cluster/${var.cluster-name}"      = "owned" # quem vai usar subnet 
   }
 }
 
@@ -38,7 +38,7 @@ resource "aws_subnet" "public-sub-1a" {
   tags = {
     "Name"                       = "public-${var.sub-pub-1a}" # Nome da Subnet
     "kubernetes.io/role/elb"     = "1"
-    "kubernetes.io/cluster/demo" = "owned" # quem vai usar subnet
+    "kubernetes.io/cluster/${var.cluster-name}" = "owned" # quem vai usar subnet
   }
 }
 
@@ -51,6 +51,6 @@ resource "aws_subnet" "public-sub-1b" {
   tags = {
     "Name"                       = "public-${var.sub-pub-1b}" # Nome da Subnet
     "kubernetes.io/role/elb"     = "1"
-    "kubernetes.io/cluster/demo" = "owned" # quem vai usar subnet
+    "kubernetes.io/cluster/${var.cluster-name}" = "owned" # quem vai usar subnet
   }
 }
